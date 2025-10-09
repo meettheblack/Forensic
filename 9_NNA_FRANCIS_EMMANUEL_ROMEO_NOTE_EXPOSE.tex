@@ -1,0 +1,148 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\geometry{margin=2.5cm}
+\setstretch{1.15}
+
+\title{\textbf{RÉSUMÉ TECHNIQUE DES EXPOSÉS EN INVESTIGATION NUMÉRIQUE}}
+\author{NNA FRANCIS EMMANUEL ROMEO \\ Matricule : 22P056 \\ Filière : CIN-4}
+\date{Octobre 2025}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\begin{center}
+\textbf{--- Synthèse technique et thématique ---}
+\end{center}
+
+\section*{1. Reconnaissance Faciale et Intelligence Artificielle}
+La reconnaissance faciale est une technologie biométrique issue de l’intelligence artificielle permettant d’identifier ou de vérifier une identité à partir des caractéristiques morphologiques du visage. Elle repose sur quatre modules principaux :
+\begin{itemize}[noitemsep]
+  \item \textbf{Acquisition} : capture d’images ou de flux vidéo à partir de capteurs.
+  \item \textbf{Extraction de caractéristiques} : traitement d’images via CNN (Convolutional Neural Networks).
+  \item \textbf{Correspondance} : comparaison des vecteurs de traits dans un espace euclidien ou cosinus.
+  \item \textbf{Décision} : classification supervisée selon un seuil de similarité ($\theta$).
+\end{itemize}
+Les approches actuelles combinent méthodes globales et locales via des architectures hybrides (FaceNet, ArcFace). Cette technologie joue un rôle clé dans les enquêtes forensiques et la surveillance intelligente.
+
+\bigskip
+\section*{2. Falsification de Messages Numériques et Chaîne de Preuve}
+Les échanges numériques (WhatsApp, Messenger, Telegram) constituent aujourd’hui des sources majeures de preuves judiciaires. Cependant, leur authenticité peut être compromise par :
+\begin{itemize}[noitemsep]
+  \item \textbf{Manipulation de captures d’écran} à l’aide d’outils comme Chatsmock, Photoshop ou HTMLForge.
+  \item \textbf{Injection de faux messages} dans des bases SQLite d’applications mobiles.
+\end{itemize}
+\textbf{Mesures préventives :}
+\begin{itemize}[noitemsep]
+  \item Vérification des métadonnées et hachage (SHA-256).
+  \item Corrélation entre horodatages et journaux système.
+  \item Analyse de la signature numérique et de la source d’origine.
+  \item Formation des magistrats et enquêteurs aux preuves numériques.
+\end{itemize}
+Ces étapes garantissent la traçabilité et l’intégrité de la preuve dans le respect du \textit{Digital Evidence Standard} (Eoghan Casey).
+
+\bigskip
+\section*{3. Deepfake et Détection Forensique}
+Les \textbf{deepfakes} (faux profonds) exploitent des GANs (Generative Adversarial Networks) pour générer des vidéos ou audios ultra-réalistes. 
+\begin{itemize}[noitemsep]
+  \item \textbf{Applications légitimes} : doublage automatique, accessibilité vocale, préservation patrimoniale.
+  \item \textbf{Applications malveillantes} : usurpation d’identité, fraude vocale, désinformation.
+\end{itemize}
+\textbf{Techniques de détection :}
+\begin{itemize}[noitemsep]
+  \item Analyse spectrale et détection de jitter dans les signaux audio.
+  \item Modèles de classification CNN-RNN entraînés sur DFDC et Celeb-DF.
+  \item Intégration de filigranes numériques (watermarking quantique).
+\end{itemize}
+Le deepfake vocal illustre la convergence entre IA, cybersécurité et investigation numérique.
+
+\bigskip
+\section*{4. Archéologie des Régimes de Vérité Numérique}
+L’\textbf{archéologie numérique} foucaldienne analyse les discontinuités entre anciens et nouveaux régimes de vérité. 
+\[
+\vec{R_t} = (\alpha_T, \alpha_J, \alpha_S, \alpha_P)
+\]
+\begin{itemize}[noitemsep]
+  \item $\alpha_T$ : dominance technologique (plateformes, IA)
+  \item $\alpha_J$ : dominance juridique (lois, RGPD)
+  \item $\alpha_S$ : dominance scientifique (expertise, vérification)
+  \item $\alpha_P$ : dominance politique/médiatique (influence, opinion)
+\end{itemize}
+De 1990 à 2020, la transition s’opère d’un régime \emph{expert-centrique} vers un régime \emph{plateforme-centré}, marqué par l’autorité algorithmique. Les discontinuités épistémologiques traduisent une \textbf{mutation socio-technique progressive mais disruptive}.
+
+\bigskip
+\section*{5. Cryptographie Post-Quantique et Protocole ZK-NR}
+Le protocole \textbf{ZK-NR (Zero-Knowledge Non-Repudiation)} vise à garantir la non-répudiation tout en préservant la confidentialité. 
+\begin{itemize}[noitemsep]
+  \item \textbf{Architecture} : combinaison de Merkle Trees, signatures BLS à seuil et preuves STARKs.
+  \item \textbf{Complexité} : génération de preuve $O(n\log n)$, vérification $O(1)$.
+  \item \textbf{Sécurité} : résistance post-quantique (Dilithium, FALCON, SPHINCS+).
+\end{itemize}
+Ce modèle permet la vérification sans divulgation, ouvrant la voie à une nouvelle \textbf{chaîne de custody cryptographique} dans les enquêtes numériques modernes.
+
+\bigskip
+\section*{6. Cybercriminalité Africaine et Investigation Numérique}
+L’Afrique fait face à une explosion des menaces cybernétiques :
+\begin{itemize}[noitemsep]
+  \item \textbf{Ransomwares et fraudes bancaires} (Mobile Money, fintech).
+  \item \textbf{Espionnage numérique étatique} et cyberactivisme.
+\end{itemize}
+\textbf{Facteurs de vulnérabilité :}
+\begin{itemize}[noitemsep]
+  \item Faible maturité législative et institutionnelle.
+  \item Dépendance à l’hébergement étranger.
+  \item Pénurie d’experts certifiés en forensic (moins d’un pour 100 000 hab.).
+\end{itemize}
+\textbf{Méthodologie forensique standardisée :}
+\begin{enumerate}[noitemsep]
+  \item Identification de l’incident.
+  \item Acquisition de preuves (images disques, journaux systèmes).
+  \item Préservation de l’intégrité (hachage, scellé numérique).
+  \item Analyse technique (Autopsy, FTK, Wireshark).
+  \item Rédaction du rapport et archivage probatoire.
+\end{enumerate}
+
+\bigskip
+\section*{7. Intelligence Artificielle Générative et Enjeux Probatoires}
+L’IA générative (ChatGPT, DALL·E, Synthesia) redéfinit la production de contenu et pose de nouveaux défis juridiques :
+\begin{itemize}[noitemsep]
+  \item \textbf{Traçabilité des modèles} : absence de logs explicites de génération.
+  \item \textbf{Authenticité des preuves synthétiques} : difficulté à prouver la source.
+  \item \textbf{Attribution} : nécessité de protocoles de marquage (watermark AI).
+\end{itemize}
+Les systèmes d’IA deviennent des \textbf{acteurs discursifs}, influençant la vérité numérique. D’où l’importance d’une approche \emph{techno-éthique} de l’investigation numérique.
+
+\bigskip
+\section*{8. L’Investigation Numérique dans la Police Judiciaire Moderne}
+L’investigation numérique est aujourd’hui un pilier de la police judiciaire. Ses apports majeurs :
+\begin{itemize}[noitemsep]
+  \item \textbf{Récupération de traces invisibles} : fichiers supprimés, métadonnées, logs.
+  \item \textbf{Reconstitution chronologique} : établissement de timelines précises.
+  \item \textbf{Attribution des faits} : corrélation IP, journaux, signatures d’appareils.
+\end{itemize}
+Elle s’appuie sur la \textbf{méthodologie ACPO (Association of Chief Police Officers)} :
+\begin{enumerate}[noitemsep]
+  \item Ne jamais altérer les données originales.
+  \item Documenter toute action effectuée.
+  \item Maintenir la chaîne de custody.
+  \item Garantir la reproductibilité des analyses.
+\end{enumerate}
+L’investigation numérique devient ainsi une \textbf{science probatoire} au cœur de la justice digitale.
+
+\bigskip
+\hrule
+\bigskip
+
+\begin{center}
+\textbf{--- Fin du résumé technique des exposés ---}
+\end{center}
+
+\end{document}
