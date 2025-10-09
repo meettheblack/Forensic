@@ -1,0 +1,217 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\geometry{margin=2.5cm}
+
+\title{Correction — \textit{Archéologie des Régimes de Vérité Numérique}}
+\author{NNA FRANCIS EMMANUEL ROMEO \\ Matricule : 22P056 \\ Filière : CIN-4}
+\date{\vspace{-5ex}}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Consigne}
+Correction réalisée strictement selon le guide fourni. Présentation structurée par parties et questions. Chaque sous-section contient : réponse synthétique, calculs / modèles, interprétation et notation indicative.
+
+\bigskip
+\hrule
+\bigskip
+
+\section{Partie 1 — Analyse Historique et Épistémologique}
+
+\subsection{1. Analyse comparative des régimes de vérité (1990--2000 vs 2010--2020)}
+
+\paragraph{Définitions opératoires}
+On pose le vecteur de dominance :
+\[
+\vec R = (\alpha_T,\;\alpha_J,\;\alpha_S,\;\alpha_P)
+\]
+avec
+\begin{itemize}[noitemsep]
+  \item $\alpha_T$ : dominance techno-épistémique,
+  \item $\alpha_J$ : dominance juridique / réglementaire,
+  \item $\alpha_S$ : dominance scientifique / experte,
+  \item $\alpha_P$ : dominance politique / médiatique.
+\end{itemize}
+Normalisation : $\sum_i \alpha_i = 1$.
+
+\paragraph{Estimations argumentées}
+\[
+\vec R_{1990-2000} \approx (0.30,\;0.15,\;0.40,\;0.15)
+\qquad
+\vec R_{2010-2020} \approx (0.40,\;0.20,\;0.20,\;0.20)
+\]
+\textit{Justification synthétique} : dans les années 1990s la validation experte (\(\alpha_S\)) domine; dans 2010–2020 les plateformes et algorithmes (\(\alpha_T\)) prennent une importance accrue tandis que la science formelle perd de la prééminence relative.
+
+\paragraph{Discontinuités épistémologiques (lecture foucaldienne)}
+\begin{itemize}[noitemsep]
+  \item Passage d'une \emph{épistémè} centrée sur l'expertise institutionnelle à une épistémè où l'architecture technique (indexation, algorithmes) structure le dicible.
+  \item Les dispositifs techniques et commerciaux deviennent des \emph{appareillages discursifs} : ce qui est visible/relevant sur une plateforme tend à devenir socialement « vrai ».
+\end{itemize}
+
+\paragraph{Explication sociotechnique des ruptures}
+Conjonction d'éléments : architectures distribuées + modèles économiques publicitaires + retard réglementaire + nouveaux acteurs discursifs (influenceurs). Ces facteurs produisent des bascules qui reconfigurent les conditions de possibilité du vrai.
+
+\paragraph{Question critique : transition progressive ou révolutionnaire ?}
+Réponse synthétique : \textbf{diachroniquement progressive}, \textbf{synchroniquement disruptive}. Les transformations techniques s'opèrent progressivement ; certains événements (points de bascule) provoquent des ruptures nettes du régime de vérité.
+
+
+\section{Partie 2 — Modélisation Mathématique et Prospective}
+
+\subsection{3. Modèle d'évolution des régimes}
+\paragraph{Formalisme proposé}
+On utilise un modèle discrete-time liant inertie, chocs technologiques et chocs juridiques :
+\[
+\vec R_{t+1} = \operatorname{softmax}\!\Big( A\,\vec R_t + B\,\Delta\!Tech_t + C\,\Delta\!Legal_t + D\,I_t + \varepsilon_t\Big)
+\]
+avec :
+\begin{itemize}[noitemsep]
+  \item $A\in\mathbb{R}^{4\times4}$ : matrice d'inertie (auto-persuasion/des dynamiques internes),
+  \item $B,C\in\mathbb{R}^{4}$ : vecteurs de sensibilité aux variations technologiques et juridiques,
+  \item $D\in\mathbb{R}^{4}$ : couplage aux indices socio-économiques $I_t$,
+  \item $\varepsilon_t\sim\mathcal{N}(0,\Sigma)$ : bruit stochastique,
+  \item $\operatorname{softmax}(x)_i=\dfrac{e^{x_i}}{\sum_j e^{x_j}}$ assure normalisation.
+\end{itemize}
+
+\paragraph{Définition de régimes et probabilités de transition}
+Définir des régions du simplexe : ex. régime \emph{techno-dominant} si $\alpha_T>0.45$. Exécuter Monte-Carlo sur $\varepsilon_t$ pour estimer les probabilités $P(\text{régime }i\to j)$ empiriquement.
+
+\paragraph{Pseudocode de simulation}
+\begin{verbatim}
+R = R0  # vecteur initial (ex: R_1990s)
+for t in 0..T-1:
+    compute ΔTech_t, ΔLegal_t, I_t  # selon scénario
+    X = A.dot(R) + B*ΔTech_t + C*ΔLegal_t + D*I_t + noise()
+    R = softmax(X)
+    record R
+end
+# calculer fréquences des transitions sur l'historique simulé
+\end{verbatim}
+
+\paragraph{Scénarios (interprétation qualitative)}
+\begin{itemize}[noitemsep]
+  \item \textbf{Baseline} : stabilité relative ; peu de transitions.
+  \item \textbf{Accélération technologique} : hausse de la probabilité d'atteindre un régime techno-dominant ; transitions plus fréquentes.
+  \item \textbf{Choc réglementaire} : basculement possible vers régime juridique/politique temporaire.
+\end{itemize}
+
+\subsection{4. Vérification de l'accélération technologique}
+\paragraph{Loi à tester}
+Hypothèse empirique : \(\Delta t_{n+1} = k\cdot \Delta t_n\) (géométrique). En notant $\Delta t_n$ les intervalles entre changements de régime.
+
+\paragraph{Données d'illustration (évènements choisis)}
+\[
+\begin{aligned}
+1995 &:\ \text{web commercial (Netscape)}\\
+2008 &:\ \text{massification smartphone / réseaux sociaux}\\
+2016 &:\ \text{micro-ciblage algorithmique / politique}\\
+2020 &:\ \text{pandémie — accélération numérique}
+\end{aligned}
+\]
+Intervalles :
+\[
+\Delta t_1 = 13,\quad \Delta t_2 = 8,\quad \Delta t_3 = 4
+\]
+
+\paragraph{Estimation simple de $k$}
+Ratios :
+\[
+\frac{8}{13}\approx 0.615,\qquad \frac{4}{8}=0.5.
+\]
+Estimateur géométrique approximatif :
+\[
+k \approx \sqrt{0.615\times 0.5}\approx 0.554.
+\]
+\textit{Interprétation} : $k<1$ indique réduction des intervalles (accélération).\\
+\textit{Méthode statistique recommandée} : régression linéaire sur $\log\Delta t_{n+1} = \log k + \log\Delta t_n$ pour estimer $\log k$, calculer l'erreur standard et réaliser un test $H_0:k=1$ (ou $\log k=0$). Remarque : travail limité par la petite taille d'échantillon.
+
+\paragraph{Prédiction (exemple)}
+$\Delta t_4 \approx k\cdot \Delta t_3 \approx 0.554\times 4 \approx 2.22$ années $\Rightarrow$ si dernier changement en 2020, prochain ~2022 (exemple illustratif, non robuste).
+
+\subsection{5. Analyse du trilemme CRO historique}
+\paragraph{Définitions}
+C = Confidentialité, R = Robustesse/Responsabilité, O = Ouverture.
+
+\paragraph{Estimations}
+\[
+\begin{aligned}
+1990\text{--}2000 &: (C,R,O) \approx (0.4,\,0.7,\,0.6)\\
+2010\text{--}2020 &: (C,R,O) \approx (0.6,\,0.5,\,0.4)
+\end{aligned}
+\]
+\textit{Compromis observé} : augmentation de C au prix d'une baisse d'O; R varie selon crises et régulation.
+
+\paragraph{Projection qualitative}
+Sans régulation forte : C augmente, O diminue. Avec régulation (ex : GDPR++) : pression pour augmenter R et O, tension avec C.
+
+\section{Partie 3 — Investigation Historique Appliquée \& Prospective}
+
+\subsection{6. Reconstruction archéologique : cas Mitnick (années 1990)}
+
+\paragraph{Analyse avec outils contemporains de l'époque (1990s)}
+\begin{itemize}[noitemsep]
+  \item Sources : usenet, RFC, logs systèmes, témoignages, rapports d'enquête (FBI).
+  \item Méthodes : lecture manuelle de logs, corrélations temporelles, phreaking/social engineering tracing.
+  \item Limites : logs incomplets, outils d'imagerie inexistants ou peu répandus, faibles normes de chaîne de custody numérique.
+\end{itemize}
+
+\paragraph{Ré-analyse avec outils modernes}
+\begin{itemize}[noitemsep]
+  \item Outils modernes : imagerie forensique bit-à-bit, timelines automatisées (Plaso), corrélation ELK, analyses de graphes, OSINT.
+  \item Gains : meilleure résolution temporelle, corrélations croisées robustes, visualisation des interactions (centralités).
+  \item Nouveaux risques : dépendance à des outils propriétaires, \enquote{black-box} et biais d'interprétation algorithmique.
+\end{itemize}
+
+\paragraph{Comparaison des régimes de vérité}
+\begin{itemize}[noitemsep]
+  \item 1990s : vérité construite fortement par expertise humaine et témoignages; plus d'incertitude interprétative.
+  \item Aujourd'hui : vérité technique plus artefactuelle (images, logs), mais médiatisée et potentiellement sujette à contestation algorithmique.
+\end{itemize}
+
+\subsection{7. Proposition de projet de recherche archéologique}
+\paragraph{Trou identifié}
+Manque d'études systématiques sur la transformation de la force probante des logs lors de la migration vers des infrastructures cloud (2000--2015).
+
+\paragraph{Hypothèse testable}
+\emph{La migration vers le cloud a réduit la force probante moyenne des logs non-corrélés d'au moins 25\% (mesuré par taux de contestation ou de rejet judiciaire) entre 2005 et 2015.}
+
+\paragraph{Méthodologie}
+Collecte de décisions judiciaires, RFC, archives d'opérateurs, analyses statistiques des admissions de preuves ; application d'une méthode foucaldienne d'archéologie des discours couplée à mesure quantitative.
+
+\subsection{8. Scénario prospectif 2030--2050}
+\paragraph{Scénario plausible}
+Consolidation de plateformes souveraines, adoption large de preuves ZK (zero-knowledge) pour vérification non-divulgative, intégration d'IA de modération certifiable. Nouveau régime de vérité : \emph{vérifiabilité cryptographique} + contrôle algorithmique de visibilité.
+
+\paragraph{Conditions de possibilité}
+Standards ZK largement adoptés, infrastructures d'horodatage post-quantique, cadres juridiques internationaux adaptés.
+
+\paragraph{Méthodologie d'investigation adaptée}
+Combiner crypto-forensics (analyse de preuves ZK et métadonnées), audits d'algorithmes, procédures de \emph{chain-of-custody} adaptées aux preuves non-divulgatives, expertise interdisciplinaire (juridique, technique, éthique).
+
+\paragraph{Défis éthiques et épistémologiques}
+La vérification sans divulgation confronte le droit à la contradiction ; risque que des décisions algorithmique-centrées aient un statut probatoire sans possibilité d'audit humain complet.
+
+Remarque : ce total couvre les trois parties traitées. Pour obtenir la note finale sur 195, il conviendrait de compléter les parties restantes (Révolution quantique ; Paradoxe de l'authenticité invisible ; Intégration avancée additionnelle).
+
+\bigskip
+\section*{Commentaires finaux et pistes d'amélioration}
+\begin{itemize}[noitemsep]
+  \item \textbf{Rigueur documentaire} : ajouter citations explicites (Foucault, Han, articles clés) renforce l'autorité et la crédibilité des arguments.
+  \item \textbf{Simulation numérique} : fournir les scripts Python et jeux de données permettra d'objectiver les estimations (régression pour estimation de $k$, Monte-Carlo pour probabilités de transition).
+  \item \textbf{Transparence méthodologique} : détailler les choix de seuils (ex. $\alpha_T>0.45$) et la définition exacte des événements historiques (dates précises) améliore la reproductibilité.
+  \item \textbf{Éthique} : pour la prospective (ZK, preuves non-divulgatives), inclure une section sur procédures adversariales garanties et mécanismes de recours.
+\end{itemize}
+
+\vfill
+
+
+\end{document}
