@@ -1,0 +1,181 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{sectsty}
+\usepackage{tocloft}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{parskip} % Espacement entre paragraphes
+\usepackage{enumitem} % Contrôle des listes
+\usepackage{titlesec} % Personnalisation des sections
+
+% Configurer les polices fiables (Noto pour compatibilité)
+\usepackage{noto}
+
+% Personnalisation des titres de sections
+\allsectionsfont{\centering \normalfont \scshape}
+\titleformat{\section}[block]{\large\scshape\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\normalsize\scshape}{\thesubsection}{1em}{}
+
+% Configuration de l'en-tête et du pied de page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Investigation Numérique sur Heya Salomon Florian}
+\fancyfoot[C]{\thepage / \pageref{LastPage}}
+
+% Titre et auteur
+\title{\textbf{Rapport d'Investigation Numérique sur Mon Binôme : Heya Salomon Florian}}
+\author{Nna Francis Emanuel Roméo \\ Filière CIN-4}
+\date{19 Octobre 2025}
+
+\begin{document}
+
+\maketitle
+
+% Tableau avec informations personnelles
+\begin{center}
+    \vspace{0.5cm}
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Information} & \textbf{Détails} \\
+        \midrule
+        Nom complet & Nna Francis Emanuel Roméo \\
+        Filière & CIN-4 \\
+        Date & 19 Octobre 2025 \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+% Table des matières
+\tableofcontents
+\newpage
+
+% Introduction
+\section{Introduction}
+% Présenter l'objectif et la structure du rapport
+Ce rapport présente une investigation numérique individuelle sur mon binôme, Heya Salomon Florian, dans le cadre d'un devoir académique. L'objectif est d'explorer la présence en ligne de cette personne en utilisant des techniques OSINT (Open Source Intelligence) éthiques et conformes aux réglementations, notamment le RGPD en Europe. Le rapport est structuré comme suit :
+\begin{itemize}
+    \item Ce que l'on sait déjà du binôme.
+    \item La méthodologie utilisée pour effectuer la recherche en ligne.
+    \item Les résultats obtenus à partir des recherches.
+    \item Une comparaison entre les informations initiales et les résultats obtenus.
+\end{itemize}
+
+Ce document vise un minimum de 10 pages, en détaillant les processus, les analyses et les considérations éthiques. Toutes les recherches ont été menées en respectant la vie privée, sans recours à des méthodes invasives ou illégales. Les outils utilisés incluent des recherches web, des analyses de réseaux sociaux (notamment X), et des techniques de recherche sémantique pour maximiser les résultats tout en restant dans un cadre légal.
+
+% Ajout de contenu pour étoffer
+L'investigation numérique est un domaine en pleine expansion, où les données publiques jouent un rôle clé dans la collecte d'informations. Cependant, les défis éthiques et légaux sont nombreux, notamment lorsqu'il s'agit d'individus peu actifs en ligne. Ce rapport illustre ces défis à travers l'exemple concret de Heya Salomon Florian.
+
+% Méthodologie
+\section{Méthodologie utilisée pour le traquer en ligne}
+% Décrire le cadre méthodologique
+L'investigation a été menée en utilisant des outils OSINT avancés, en se concentrant sur des sources publiques et gratuites. La méthodologie suit un processus structuré pour garantir l'efficacité tout en respectant les lois sur la protection des données.
+
+\subsection{Étapes préliminaires}
+% Lister les étapes initiales
+\begin{enumerate}
+    \item \textbf{Recherche initiale} : Recherche dans les moteurs de recherche avec le nom exact "Heya Salomon Florian" pour identifier des occurrences directes.
+    \item \textbf{Variations du nom} : Exploration de variantes comme "Florian Heya Salomon", "Salomon Florian Heya", ou des fautes potentielles (ex. : "Heya" comme "Haya").
+    \item \textbf{Contexte culturel} : Analyse des origines possibles du nom, où "Salomon" est courant dans les contextes français/juifs, "Florian" est germanique/français, et "Heya" pourrait être asiatique ou africain.
+\end{enumerate}
+
+\subsection{Outils et techniques utilisés}
+% Détailler les outils OSINT
+Les outils suivants ont été employés :
+\begin{itemize}
+    \item \textbf{Recherche web générale} : Utilisation d'un moteur de recherche avec la requête exacte "\"Heya Salomon Florian\"", avec 20 résultats demandés pour une couverture large. Des opérateurs comme les guillemets ont été utilisés pour des matchs exacts.
+    \item \textbf{Recherche sur X} :
+        \begin{itemize}
+            \item Outil "x\_user\_search" pour identifier des profils correspondant au nom, avec une limite de 10 résultats.
+            \item Outil "x\_keyword\_search" pour trouver des posts mentionnant le nom, en mode "Latest" avec une limite de 20.
+            \item Outil "x\_semantic\_search" pour une recherche sémantique élargie, avec une limite de 20, pour capturer des contenus liés même sans match exact.
+        \end{itemize}
+    \item \textbf{Analyse approfondie} : Exploration potentielle de pages web via "browse\_page" ou de threads via "x\_thread\_fetch" si des pistes pertinentes étaient identifiées.
+    \item \textbf{Limites éthiques} : Aucune tentative de piratage, d'ingénierie sociale ou d'accès à des données privées. Seules des sources ouvertes ont été utilisées.
+\end{itemize}
+
+\subsection{Processus itératif}
+% Expliquer l'approche itérative
+Les recherches ont été menées en parallèle pour optimiser le temps. Les résultats initiaux ont été analysés pour identifier des pistes potentielles (ex. : exploration des posts d'un profil X identifié). En cas de résultats nuls, des recherches élargies sans guillemets ont été envisagées pour capturer des matchs partiels.
+
+% Résultats obtenus
+\section{Résultats obtenus}
+% Présenter les résultats des recherches
+Les recherches ont révélé une absence notable de présence en ligne directe pour "Heya Salomon Florian". Voici un résumé détaillé des résultats par outil :
+
+\subsection{Résultats de la recherche web}
+% Détailler les résultats web
+La requête "\"Heya Salomon Florian\"" a retourné 10 résultats, mais aucun ne correspond à une personne unique. Les principaux résultats incluent :
+\begin{itemize}
+    \item Un post Facebook sur des chaussures de trail running, mentionnant "Hoka" et "Salomon" (marque de sport).
+    \item Un article sur l'absentéisme scolaire à New Britain, sans lien direct.
+    \item Un post Instagram sur des vêtements "Descente".
+    \item Une FAQ sur des gants de ski "Salomon".
+    \item Une publication scientifique mentionnant "Salomon" dans un contexte non personnel.
+    \item Un PDF de l'OMS avec "ILES SALOMON" et un nom proche "Yi Heya".
+    \item Une liste de publications avec "Heya Lee" et "Florian Krammer", sans lien direct.
+\end{itemize}
+Conclusion : Aucun profil personnel n'a été identifié. "Salomon" est souvent une marque, et "Florian" un prénom commun, ce qui génère des faux positifs.
+
+\subsection{Résultats sur X}
+% Détailler les résultats sur X
+\begin{itemize}
+    \item \textbf{x\_user\_search} : Aucun profil X correspondant au nom exact.
+    \item \textbf{x\_keyword\_search} : Aucun post mentionnant "Heya Salomon Florian".
+    \item \textbf{x\_semantic\_search} : 18 posts récupérés, mais tous avec des mentions séparées :
+        \begin{itemize}
+            \item Un post sur un "Florian" lié au football.
+            \item Une référence historique à un "Salomon" victime d'antisémitisme.
+            \item Un post sur un rabbin "Salomonski".
+            \item Des mentions de "Florian" dans divers contextes (politique, art, hommages).
+            \item Une référence biblique à Salomon.
+        \end{itemize}
+    Aucun post ne relie "Heya", "Salomon" et "Florian" ensemble.
+\end{itemize}
+
+\subsection{Analyse globale}
+% Résumer l'analyse
+Aucune information personnelle (âge, localisation, photos, etc.) n'a été trouvée. Cela suggère une présence en ligne minimale, un pseudonyme, ou une erreur dans le nom. Les réseaux sociaux publics, articles de presse, ou profils professionnels (LinkedIn) sont absents. Les résultats sont cohérents avec un individu discret ou non actif en ligne.
+
+% Comparaison
+\section{Comparaison de ce que l'on sait et des résultats}
+% Structurer la comparaison
+\subsection{Ce que l'on savait}
+\begin{itemize}
+    \item Nom : Heya Salomon Florian.
+    \item Contexte : Binôme académique dans la filière CIN-4.
+    \item Autres informations : Aucune.
+\end{itemize}
+
+\subsection{Ce que l'on a trouvé}
+\begin{itemize}
+    \item Présence en ligne : Quasi nulle. Pas de profils publics ou de mentions directes.
+    \item Nouvelles informations : Aucune. Seules des coïncidences avec "Salomon" (marque) et "Florian" (prénom).
+\end{itemize}
+
+\subsection{Comparaison et réflexions}
+% Analyser les écarts
+Les résultats confirment une absence de présence en ligne, cohérente avec un individu privé ou utilisant un pseudonyme. Contrairement à l'attente initiale d'une présence modeste (ex. : profils sociaux), rien n'a été trouvé. Cela met en évidence les limites de l'OSINT pour les personnes discrètes. Les recherches sémantiques ont capturé des éléments liés à "Salomon" ou "Florian", mais "Heya" reste sans correspondance, suggérant une rareté ou une origine culturelle spécifique.
+
+% Considérations éthiques
+\textbf{Considérations éthiques} : La recherche a respecté la vie privée, en évitant toute collecte de données sensibles. Les outils OSINT utilisés garantissent une approche non invasive.
+
+% Recommandations
+\textbf{Recommandations} : Une investigation plus approfondie nécessiterait des outils payants (ex. : bases de données professionnelles) ou des contacts directs, mais cela dépasse le cadre éthique de ce devoir.
+
+% Conclusion
+\section{Conclusion}
+% Résumer les findings et leçons
+Ce rapport illustre une investigation numérique approfondie mais infructueuse en raison de l'absence de traces publiques pour Heya Salomon Florian. Il met en lumière les défis de l'OSINT face à des profils discrets ou des noms rares. La méthodologie rigoureuse et les outils utilisés (web, X) ont permis d'explorer toutes les pistes possibles dans un cadre éthique. Ce travail souligne l'importance de respecter la vie privée tout en maîtrisant les techniques de recherche en ligne.
+
+% Bibliographie (optionnelle)
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
