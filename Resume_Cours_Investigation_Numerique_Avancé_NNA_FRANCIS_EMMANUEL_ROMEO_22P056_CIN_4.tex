@@ -1,0 +1,400 @@
+\documentclass[11pt, a4paper]{article}
+
+% ── Encodage ──────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% ── Mise en page ──────────────────────────────────────────────────────────────
+\usepackage[top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+% ── Couleurs ──────────────────────────────────────────────────────────────────
+\usepackage[dvipsnames, table]{xcolor}
+\definecolor{bleuFonce}{HTML}{1F3864}
+\definecolor{bleuMoyen}{HTML}{2E5BA8}
+\definecolor{bleuClair}{HTML}{EEF2FA}
+\definecolor{grisTexte}{HTML}{444444}
+\definecolor{grisNote}{HTML}{888888}
+\definecolor{orange}{HTML}{E87722}
+
+% ── Graphiques & boîtes ───────────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing, shapes.geometric, calc}
+\usepackage{mdframed}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Tableaux ──────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{multirow}
+\renewcommand{\arraystretch}{1.3}
+
+% ── Listes ────────────────────────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.6em, itemsep=3pt, topsep=4pt}
+
+% ── Titres de section ─────────────────────────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{bleuFonce}}{}{0em}{}[%
+  \vspace{-4pt}\textcolor{bleuMoyen}{\rule{\linewidth}{0.7pt}}]
+\titleformat{\subsection}{\normalsize\bfseries\color{bleuMoyen}}{}{0em}{}
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\titlespacing{\subsection}{0pt}{6pt}{1pt}
+
+% ── En-tête / Pied de page ────────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small\color{grisNote}\thepage}
+
+% ── Hyperliens ────────────────────────────────────────────────────────────────
+\usepackage[hidelinks]{hyperref}
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  COMMANDES UTILITAIRES
+% ─────────────────────────────────────────────────────────────────────────────
+\newcommand{\pointille}{%
+  \begin{tikzpicture}
+    \draw[orange, line width=0.8pt, dotted, dash pattern=on 2pt off 2pt]
+      (0,0) -- (\linewidth,0);
+  \end{tikzpicture}%
+}
+
+% Bordure pointillée complète (pour simuler le cadre de la page de garde)
+\newcommand{\cadrePointille}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[orange!70, line width=1.2pt,
+          dash pattern=on 3pt off 3pt]
+      ([shift={(8pt,-8pt)}]current page.north west) rectangle
+      ([shift={(-8pt,8pt)}]current page.south east);
+  \end{tikzpicture}%
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+\thispagestyle{empty}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  PAGE DE GARDE
+% ══════════════════════════════════════════════════════════════════════════════
+\cadrePointille
+
+% ── Bandeau supérieur bilingue ───────────────────────────────────────────────
+{%
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{p{0.36\textwidth} p{0.22\textwidth} p{0.36\textwidth}}
+  % Colonne française
+  \begin{minipage}[c]{0.36\textwidth}
+    \centering\small
+    \textbf{REPUBLIQUE DU CAMEROUN}\\
+    \textit{***** *****}\\
+    \textit{PAIX-TRAVAIL-PATRIE}\\
+    \textit{***** *****}\\
+    MINISTRE DE\\
+    L'ENSEIGNEMENT SUPERIEUR\\
+    \textit{***** *****}\\
+    UNIVERSITE DE YAOUNDE 1\\
+    \textit{***** *****}\\
+    ECOLE NATIONALE\\
+    SUPERIEURE\\
+    POLYTECHNIQUE\\
+    \textit{***** *****}\\
+    DEPARTEMENT DE GENIE\\
+    INFORMATIQUE
+  \end{minipage}
+  &
+  % Logo centré
+  \begin{minipage}[c]{0.22\textwidth}
+    \centering
+    \includegraphics[width=3.5cm]{logo.png}
+  \end{minipage}
+  &
+  % Colonne anglaise
+  \begin{minipage}[c]{0.36\textwidth}
+    \centering\small
+    \textbf{REPUBLIC OF CAMEROON}\\
+    \textit{***** *****}\\
+    PEACE--WORK-FATHERLAND\\
+    \textit{***** *****}\\
+    MINISTRY OF\\
+    HIGHER EDUCATION\\
+    \textit{***** *****}\\
+    UNIVERSITY OF YAOUNDE I\\
+    \textit{***** *****}\\
+    NATIONAL\\
+    ADVANCED SCHOOL OF\\
+    ENGINEERING\\
+    \textit{***** *****}\\
+    COMPUTER ENGINEERING\\
+    DEPARTMENT
+  \end{minipage}
+\end{tabular}
+}
+\vspace{0.5cm}
+
+% ── Titre principal ──────────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced,
+  colback=white,
+  colframe=orange,
+  arc=6pt,
+  boxrule=1.8pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  width=0.82\textwidth,
+  center
+]
+  \begin{center}
+    {\fontsize{28}{32}\selectfont\bfseries INVESTIGATION}\\[4pt]
+    {\fontsize{28}{32}\selectfont\bfseries NUMERIQUE AVANCEE}
+  \end{center}
+\end{tcolorbox}
+
+\vspace{1cm}
+
+% ── Sous-titre ───────────────────────────────────────────────────────────────
+\begin{center}
+  {\large\bfseries RESUME EN 2 PAGES LE COURS}\\[6pt]
+  {\large\bfseries Processus Investigatif Universel :}\\[4pt]
+  {\large\bfseries M\'{e}thodologie et Applications}\\[4pt]
+  {\large\bfseries Contextuelles}
+\end{center}
+
+\vspace{1.2cm}
+
+% ── Identité étudiant ────────────────────────────────────────────────────────
+\begin{center}
+\begin{tabular}{|l|l|}
+  \hline
+  \textbf{NNA FRANCIS EMMANUEL ROMEO} & \textbf{22P056 (CIN-4)} \\
+  \hline
+\end{tabular}
+\end{center}
+
+\vspace{1.4cm}
+
+% ── Superviseur ──────────────────────────────────────────────────────────────
+\begin{center}
+  {\Large\bfseries Supervis\'{e} par :}\\[10pt]
+  {\Large\bfseries M. MINKA THIERRY}
+\end{center}
+
+\vspace{1.6cm}
+
+% ── Année académique ─────────────────────────────────────────────────────────
+\begin{center}
+\begin{tikzpicture}
+  % Flèches gauche et droite
+  \node[draw=none, fill=none] at (-4.5, 0) {%
+    \begin{tikzpicture}
+      \draw[bleuFonce, line width=1.5pt] (0,0) -- (2,0) -- (1.4,-0.35) -- (1.4,0.35) -- (2,0);
+      \fill[bleuFonce] (0,-0.1) rectangle (0.15,0.1);
+    \end{tikzpicture}%
+  };
+  \node[draw=bleuFonce, line width=1pt, fill=white, rounded corners=2pt,
+        minimum width=5cm, minimum height=0.75cm] at (0,0)
+    {\textbf{Ann\'{e}e Acad\'{e}mique 2025-2026}};
+  \node[draw=none, fill=none] at (4.5, 0) {%
+    \begin{tikzpicture}
+      \draw[bleuFonce, line width=1.5pt] (0,0) -- (-2,0) -- (-1.4,-0.35) -- (-1.4,0.35) -- (-2,0);
+      \fill[bleuFonce] (-0.15,-0.1) rectangle (0,0.1);
+    \end{tikzpicture}%
+  };
+\end{tikzpicture}
+\end{center}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%  CONTENU DU RÉSUMÉ (pages suivantes)
+% ══════════════════════════════════════════════════════════════════════════════
+\newpage
+\pagestyle{fancy}
+
+% En-tête sobre sur les pages de contenu
+\fancyhead[L]{\small\color{grisTexte}\textit{Investigation Num\'{e}rique Avanc\'{e}e}}
+\fancyhead[R]{\small\color{grisTexte}\textit{NNA Francis Emmanuel Romeo — 22P056}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Titre de page ────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{bleuFonce} INVESTIGATION NUM\'{E}RIQUE}\\[5pt]
+  {\normalsize\itshape\color{grisTexte}
+    Processus Investigatif Universel --- R\'{e}sum\'{e} de cours}
+\end{center}
+{\color{bleuMoyen}\rule{\linewidth}{1pt}}
+\vspace{6pt}
+
+% ── Section 1 ─────────────────────────────────────────────────────────────────
+\section{Vue d'ensemble et objectifs}
+
+Le Processus Investigatif Universel (PIU) est une m\'{e}thodologie structur\'{e}e applicable
+\`{a} tout type d'investigation --- personnelle, organisationnelle ou judiciaire. Son
+architecture modulaire repose sur cinq phases s\'{e}quentielles, dix-sept \'{e}tapes
+op\'{e}rationnelles et trois points de contr\^{o}le qualit\'{e} (\textit{Quality Gates}).
+Chaque \'{e}tape se d\'{e}cline en trois niveaux de rigueur --- minimal, standard et avanc\'{e}
+--- calibr\'{e}s selon l'enjeu financier, le risque p\'{e}nal, la complexit\'{e} technique et
+le nombre de parties prenantes.
+
+Le processus poursuit quatre objectifs fondamentaux~: \'{e}tablir les faits de mani\`{e}re
+objective et reproductible, garantir l'int\'{e}grit\'{e} probatoire des \'{e}l\'{e}ments
+collect\'{e}s, assurer une tra\c{c}abilit\'{e} compl\`{e}te de chaque action, et produire des
+conclusions d\'{e}fendables face \`{a} toute contestation contradictoire.
+
+% ── Section 2 ─────────────────────────────────────────────────────────────────
+\section{Architecture en cinq phases}
+
+Les cinq phases s'encha\^{i}nent de mani\`{e}re s\'{e}quentielle, avec une boucle
+it\'{e}rative possible entre les phases~2 et~3 lorsque les analyses r\'{e}v\`{e}lent des
+lacunes probatoires.
+
+\vspace{3pt}
+\begin{tabularx}{\linewidth}{%
+  >{\bfseries\small}p{3.8cm}
+  >{\itshape\small}p{2.6cm}
+  >{\small}X}
+  \rowcolor{bleuFonce}
+  \textcolor{white}{\textbf{Phase}} &
+  \textcolor{white}{\textbf{\'{E}tapes}} &
+  \textcolor{white}{\textbf{Contenu cl\'{e}}} \\[1pt]
+  \rowcolor{white}
+  1 --- Initialisation & E1 \`{a} E3 + QG1 &
+    R\'{e}ception de la demande, d\'{e}cision d'engagement, planification
+    op\'{e}rationnelle. Le Quality Gate~1 valide la disponibilit\'{e} des ressources
+    et la clart\'{e} du p\'{e}rim\`{e}tre avant tout d\'{e}marrage. \\
+  \rowcolor{bleuClair}
+  2 --- Acquisition & E4 \`{a} E6 + QG2 &
+    Collecte syst\'{e}matique des preuves, s\'{e}curisation (r\`{e}gle 3-2-1,
+    chiffrement AES-256, hash SHA-256/512), cartographie des parties prenantes.
+    Le Quality Gate~2 certifie l'int\'{e}grit\'{e} probatoire. \\
+  \rowcolor{white}
+  3 --- Investigation & E7 \`{a} E10 + QG3 &
+    Recueil des t\'{e}moignages, g\'{e}n\'{e}ration d'au moins cinq
+    hypoth\`{e}ses distinctes, confrontation hypoth\`{e}ses/preuves,
+    falsification active (principe de Popper) et validation multi-m\'{e}thodes. \\
+  \rowcolor{bleuClair}
+  4 --- Formalisation & E11 \`{a} E13 &
+    Consolidation en cinq volumes (synth\`{e}se, analyses, preuves,
+    t\'{e}moignages, annexes), r\'{e}daction du rapport final structur\'{e}
+    sur trois niveaux, transmission s\'{e}curis\'{e}e et tra\c{c}able. \\
+  \rowcolor{white}
+  5 --- Suivi & E14 \`{a} E17 &
+    Pr\'{e}paration \`{a} la d\'{e}fense contradictoire, maintenance
+    probatoire, analyse des contre-expertises, cl\^{o}ture et retour
+    d'exp\'{e}rience (REX). \\
+\end{tabularx}
+\vspace{3pt}
+
+% ── Section 3 ─────────────────────────────────────────────────────────────────
+\section{M\'{e}canismes analytiques essentiels}
+
+\subsection{La g\'{e}n\'{e}ration d'hypoth\`{e}ses multiples (étape E8)}
+
+Au minimum cinq hypoth\`{e}ses doivent \^{e}tre formul\'{e}es, dont
+obligatoirement une hypoth\`{e}se nulle (absence de fait d\'{e}lictuel) et des
+hypoth\`{e}ses improbables servant de ligne de base comparative. Cette exigence
+vise \`{a} pr\'{e}venir le biais de confirmation, qui constitue l'obstacle majeur
+\`{a} l'objectivit\'{e} investigative.
+
+\subsection{La falsification active (étape E9bis)}
+
+Inspir\'{e} de l'\'{e}pist\'{e}mologie de Karl Popper, ce m\'{e}canisme impose de
+chercher d\'{e}lib\'{e}r\'{e}ment ce qui pourrait r\'{e}futer chaque hypoth\`{e}se,
+plut\^{o}t que d'accumuler des preuves confirmatives. Une hypoth\`{e}se ayant
+r\'{e}sist\'{e} \`{a} des tentatives s\'{e}rieuses de falsification acquiert une
+robustesse analytique sup\'{e}rieure. Les hypoth\`{e}ses r\'{e}fut\'{e}es sont
+formellement \'{e}limin\'{e}es avec documentation de la preuve r\'{e}futante.
+
+\subsection{Les Quality Gates}
+
+Chaque Quality Gate conduit \`{a} l'une de trois d\'{e}cisions~:
+\textcolor{green!55!black}{\textbf{vert}} (progression imm\'{e}diate),
+\textcolor{orange!85!black}{\textbf{orange}} (progression conditionnelle avec plan
+de r\'{e}gularisation sous 48 \`{a} 72~heures) ou
+\textcolor{red!70!black}{\textbf{rouge}} (suspension jusqu'\`{a} mise en
+conformit\'{e}). Un \'{e}chec au Quality Gate~3 peut imposer un retour aux
+\'{e}tapes d'acquisition ou d'investigation --- ce qui repr\'{e}sente une
+it\'{e}ration normale du processus et non un dysfonctionnement.
+
+% ── Section 4 ─────────────────────────────────────────────────────────────────
+\section{Cas pratique illustratif}
+
+L'affaire de la facture suspecte illustre comment le m\^{e}me processus s'adapte
+\`{a} trois contextes diff\'{e}rents. La dirigeante d'une PME d\'{e}couvre un d\'{e}bit
+de 47~850~\texteuro{} au profit d'une soci\'{e}t\'{e} inconnue, CONSULTING-PRO, pour des
+prestations qu'elle affirme n'avoir jamais command\'{e}es.
+
+\vspace{3pt}
+\begin{tabularx}{\linewidth}{%
+  >{\bfseries\small}p{3.0cm}
+  >{\small}X >{\small}X >{\small}X}
+  \rowcolor{bleuMoyen}
+  \textcolor{white}{\textbf{Dimension}} &
+  \textcolor{white}{\textbf{Particulier}} &
+  \textcolor{white}{\textbf{Entreprise}} &
+  \textcolor{white}{\textbf{Judiciaire}} \\[1pt]
+  \rowcolor{bleuClair}
+  Niveau de rigueur & Minimal/Standard & Standard/Avanc\'{e} & Avanc\'{e} syst\'{e}matique \\
+  \rowcolor{white}
+  Dur\'{e}e & 3 semaines & 6 semaines & 4 mois \\
+  \rowcolor{bleuClair}
+  Ressources & 1 personne + avocat & \'{E}quipe 3 + outils forensiques & Expert judiciaire + consultant \\
+  \rowcolor{white}
+  Co\^{u}t estim\'{e} & 500~\texteuro{} & 15~000~\texteuro{} & 8~000~\texteuro{} (honoraires) \\
+  \rowcolor{bleuClair}
+  Force probante & Moyenne & \'{E}lev\'{e}e (interne) & Maximale (judiciaire) \\
+\end{tabularx}
+\vspace{3pt}
+
+Dans les trois contextes, l'investigation converge vers la m\^{e}me conclusion~:
+une fraude externe par hame\c{c}onnage (\textit{phishing/spoofing}). La comptable,
+victime collat\'{e}rale, avait trait\'{e} une facture re\c{c}ue par e-mail dont
+l'exp\'{e}diteur \'{e}tait usurp\'{e}, et dont les m\'{e}tadonn\'{e}es forensiques
+r\'{e}v\`{e}lent une origine depuis un serveur \'{e}tranger. Cette convergence
+d\'{e}montre la robustesse analytique du processus, ind\'{e}pendamment du niveau
+de rigueur appliqu\'{e}.
+
+% ── Section 5 ─────────────────────────────────────────────────────────────────
+\section{Principes directeurs}
+
+Plusieurs enseignements transversaux ressortent du cours~:
+
+\begin{itemize}[label=\textcolor{bleuMoyen}{---}]
+  \item La qualit\'{e} d'une investigation se mesure \`{a} la r\'{e}sistance de ses
+    conclusions face \`{a} la contestation contradictoire, non \`{a} la rapidit\'{e}
+    avec laquelle on y parvient.
+
+  \item L'effort documentaire \`{a} chaque \'{e}tape constitue un investissement~: en
+    cas de contestation tardive, la tra\c{c}abilit\'{e} initiale d\'{e}termine
+    directement la capacit\'{e} \`{a} d\'{e}fendre les conclusions, parfois des
+    ann\'{e}es apr\`{e}s les faits.
+
+  \item L'it\'{e}ration est une composante normale et souhaitable du processus --- un
+    taux de passage direct au Quality Gate~3 de 60 \`{a} 70~\% est jug\'{e}
+    satisfaisant.
+
+  \item Le PIU s'inscrit dans une d\'{e}marche d'investigation fond\'{e}e sur les
+    preuves (\textit{evidence-based investigation}), h\'{e}rit\'{e}e de la m\'{e}thode
+    scientifique~: hypoth\`{e}ses multiples, tentatives de r\'{e}futation,
+    quantification des incertitudes et validation par les pairs.
+
+  \item La m\'{e}thodologie s'applique bien au-del\`{a} de la fraude financi\`{e}re~:
+    RH (harc\`{e}lement, discrimination), forensique num\'{e}rique, accidents
+    techniques, recherche acad\'{e}mique, journalisme d'investigation et audits de
+    conformit\'{e} r\'{e}glementaire.
+\end{itemize}
+
+\vspace{14pt}
+{\color{bleuMoyen}\rule{\linewidth}{0.6pt}}
+\vspace{4pt}
+\begin{center}
+  \small\itshape\color{grisNote}
+  R\'{e}sum\'{e} r\'{e}alis\'{e} \`{a} partir du cours sur le Processus Investigatif
+  Universel --- Chapitre~1
+\end{center}
+
+\end{document}
